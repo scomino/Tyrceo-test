@@ -49,7 +49,7 @@ def df_to_geojson(df):
         geojson['features'].append(feature)
 
     geojson_str = json.dumps(geojson, indent=2)
-    with open('points.geojson', 'w') as output_file:
+    with open('backend/points.geojson', 'w') as output_file:
         output_file.write(geojson_str)
 
 connection = get_connection(host,user_name,password,db_name)
