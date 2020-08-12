@@ -34,7 +34,6 @@ def df_to_geojson(df):
     for _, row in df.iterrows():
         feature = {'type':'Feature',
                     'properties':{
-                        'title':'',
                         'marker-color':''
                     },
                     'geometry': {
@@ -43,7 +42,6 @@ def df_to_geojson(df):
                     }
                 }
 
-        feature['properties']['title'] = row['pokemon'].capitalize().strip()
         feature['properties']['marker-color'] = pokemon_colors[row['pokemon'].capitalize().strip()]                        
         feature['geometry']['coordinates'] = [row['longitude'],row['latitude']]
         geojson['features'].append(feature)
