@@ -6,8 +6,12 @@ host = "35.187.55.190"
 user_name="candidate"
 password="Fbps9Y7MhKQa4XPxjYo8"
 db_name="test"
-query_sql = "Select data.pokemon, data.score, coordinates.latitude,coordinates.longitude from data inner join data_at_coordinate ON data.id = data_at_coordinate.id_data INNER JOIN coordinates ON data_at_coordinate.id_coordinate = coordinates.id where data.pokemon in ('Bulbasur', 'Bulbasaur', 'Charmander','Squirtle','Squirtel') AND data.score >=0.5"
-
+query_sql = "select data.pokemon, data.score, coordinates.latitude,coordinates.longitude " \
+            "from data inner join data_at_coordinate ON data.id = data_at_coordinate.id_data " \
+            "INNER JOIN coordinates ON data_at_coordinate.id_coordinate = coordinates.id " \
+            "where data.pokemon in ('Bulbasur', 'Bulbasaur', 'Charmander','Squirtle','Squirtel') " \
+            "AND data.score >=0.5"
+            
 def get_connection(host,user_name,password,db_name):
     connection = pymysql.connect(host=host,
                                 user=user_name,
