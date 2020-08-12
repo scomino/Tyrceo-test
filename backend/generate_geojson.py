@@ -30,18 +30,19 @@ def df_to_geojson(df):
     'Squirtle': '#07AAF4',
     'Squirtel': '#07AAF4',
     }
-    lat="latitude"
-    lon="longitude"
     geojson = {'type':'FeatureCollection', 'features':[]}
     for _, row in df.iterrows():
         feature = {'type':'Feature',
                     'properties':{
                         'title':'',
-                        'marker-color':'',
-                        "marker-symbol": "circle"
+                        'marker-color':''
                     },
-                    'geometry':{'type':'Point',
-                                'coordinates':[]}}
+                    'geometry': {
+                        'type':'Point',
+                        'coordinates':[]
+                    }
+                }
+
         feature['properties']['title'] = row['pokemon'].capitalize().strip()
         feature['properties']['marker-color'] = pokemon_colors[row['pokemon'].capitalize().strip()]                        
         feature['geometry']['coordinates'] = [row['longitude'],row['latitude']]
